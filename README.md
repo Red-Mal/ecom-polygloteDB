@@ -4,19 +4,30 @@ A modern, full-stack e-commerce application built with a polyglot persistence ap
 
 ## 🌟 Features
 
-- **Modern UI/UX**: Built with Next.js 13+ and Tailwind CSS
+### Implemented Features
+- **Modern UI/UX**: Built with Next.js 13+ and Tailwind CSS with Shadcn UI components
 - **Polyglot Persistence**:
   - MongoDB: Product catalog and reviews
   - PostgreSQL: User accounts and orders
-  - Redis: Caching and session management
-  - Elasticsearch: Full-text search capabilities
-- **Microservices Architecture**: Containerized with Docker
+  - Redis: Ready for caching implementation
+  - Elasticsearch: Ready for search implementation
+- **Containerized Architecture**: Fully containerized with Docker and Docker Compose
+- **Responsive Design**: Mobile-first approach with Tailwind CSS
+- **Rich Product Catalog**: 
+  - Multiple categories per product
+  - High-quality product images
+  - Customer reviews and ratings
+- **Order Management**: 
+  - Complete order lifecycle
+  - Multiple order statuses (Pending, Confirmed, Shipped, Delivered, Cancelled)
+  - User order history
+
+### Planned Features
 - **Real-time Updates**: WebSocket integration for live inventory updates
-- **Responsive Design**: Mobile-first approach
 - **Secure Authentication**: JWT-based auth system
-- **Rich Product Catalog**: With categories, ratings, and reviews
 - **Shopping Cart**: Persistent cart functionality
-- **Order Management**: Complete order lifecycle
+- **Redis Caching**: Performance optimization
+- **Elasticsearch Integration**: Advanced search capabilities
 
 ## 🛠 Tech Stack
 
@@ -28,29 +39,28 @@ A modern, full-stack e-commerce application built with a polyglot persistence ap
 - React Query
 
 ### Backend
-- Spring Boot
+- Spring Boot 3.2
 - Java 17
 - Spring Data JPA/MongoDB
-- Spring Security
+- Spring Security (planned)
 
 ### Databases
-- MongoDB
-- PostgreSQL
-- Redis
-- Elasticsearch
+- MongoDB 7.0: Product catalog and reviews
+- PostgreSQL 16: User accounts and orders
+- Redis 7.0: Future caching implementation
+- Elasticsearch 8.12: Future search implementation
 
 ### DevOps
-- Docker
-- Docker Compose
-- GitHub Actions
+- Docker & Docker Compose
+- GitHub Actions (planned)
 
 ## 🚀 Getting Started
 
 ### Prerequisites
 - Docker and Docker Compose
-- Node.js 18+
-- Java 17+
-- Maven
+- Node.js 18+ (for local development)
+- Java 17+ (for local development)
+- Maven (for local development)
 
 ### Installation
 
@@ -70,28 +80,48 @@ docker compose -f docker/docker-compose.yml up -d
 - Backend API: http://localhost:8080
 - Swagger UI: http://localhost:8080/swagger-ui.html
 
-## 📁 Project Structure
+### Local Development Setup
 
+#### Frontend
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+#### Backend
+```bash
+cd backend
+./mvnw spring-boot:run
+```
+
+## 📁 Project Structure
 ```
 ecom-polyglotDB/
-├── frontend/               # Next.js frontend application
-├── backend/               # Spring Boot backend application
-├── docker/                # Docker configuration files
-│   ├── docker-compose.yml
-│   └── init-scripts/      # Database initialization scripts
-└── README.md
+├── frontend/                 # Next.js frontend application
+│   ├── src/
+│   │   ├── components/      # Reusable UI components
+│   │   ├── pages/          # Next.js pages
+│   │   └── styles/         # Global styles
+├── backend/                 # Spring Boot backend application
+│   ├── src/
+│   │   ├── main/
+│   │   │   ├── java/       # Java source files
+│   │   │   └── resources/  # Application properties
+│   │   └── test/           # Test files
+└── docker/                  # Docker configuration
+    ├── docker-compose.yml
+    └── init-scripts/        # Database initialization scripts
 ```
 
-## 🔧 Configuration
+## 🔧 Environment Setup
 
-### Environment Variables
-
-Frontend (.env):
+### Frontend Environment Variables (.env)
 ```
-NEXT_PUBLIC_API_URL=http://backend:8080
+NEXT_PUBLIC_API_URL=http://localhost:8080
 ```
 
-Backend (application.properties):
+### Backend Environment Variables (application.properties)
 ```
 spring.data.mongodb.uri=mongodb://mongodb:27017/ecommerce
 spring.datasource.url=jdbc:postgresql://postgres:5432/ecommerce
@@ -102,27 +132,48 @@ spring.datasource.url=jdbc:postgresql://postgres:5432/ecommerce
 The API documentation is available through Swagger UI at:
 http://localhost:8080/swagger-ui.html
 
+Key API endpoints:
+- Products: `/api/products`
+- Orders: `/api/orders`
+- Reviews: `/api/reviews`
+- Users: `/api/users`
+
 ## 🧪 Testing
 
-Run backend tests:
-```bash
-cd backend
-./mvnw test
-```
-
-Run frontend tests:
+### Frontend Tests
 ```bash
 cd frontend
 npm test
 ```
 
+### Backend Tests
+```bash
+cd backend
+./mvnw test
+```
+
 ## 🤝 Contributing
 
 1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
+2. Create your feature branch:
+```bash
+git checkout -b feature/AmazingFeature
+```
+3. Commit your changes:
+```bash
+git commit -m 'Add some AmazingFeature'
+```
+4. Push to the branch:
+```bash
+git push origin feature/AmazingFeature
+```
 5. Open a Pull Request
+
+### Development Guidelines
+- Follow the existing code style and conventions
+- Write meaningful commit messages
+- Add appropriate tests for new features
+- Update documentation as needed
 
 ## 📝 License
 
