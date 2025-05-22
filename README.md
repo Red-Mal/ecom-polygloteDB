@@ -1,93 +1,135 @@
-# E-Commerce Application with Polyglot Persistence
+# E-commerce PolyglotDB
 
-This is an e-commerce application that demonstrates the use of polyglot persistence, utilizing both PostgreSQL and MongoDB for different aspects of the data model.
+A modern, full-stack e-commerce application built with a polyglot persistence approach, utilizing multiple databases for different aspects of the system.
 
-## Technologies Used
+## 🌟 Features
 
-- Java 17 (Amazon Corretto)
+- **Modern UI/UX**: Built with Next.js 13+ and Tailwind CSS
+- **Polyglot Persistence**:
+  - MongoDB: Product catalog and reviews
+  - PostgreSQL: User accounts and orders
+  - Redis: Caching and session management
+  - Elasticsearch: Full-text search capabilities
+- **Microservices Architecture**: Containerized with Docker
+- **Real-time Updates**: WebSocket integration for live inventory updates
+- **Responsive Design**: Mobile-first approach
+- **Secure Authentication**: JWT-based auth system
+- **Rich Product Catalog**: With categories, ratings, and reviews
+- **Shopping Cart**: Persistent cart functionality
+- **Order Management**: Complete order lifecycle
+
+## 🛠 Tech Stack
+
+### Frontend
+- Next.js 13+
+- TypeScript
+- Tailwind CSS
+- Shadcn UI Components
+- React Query
+
+### Backend
 - Spring Boot
-- PostgreSQL (for User and Order management)
-- MongoDB (for Product and Review management)
-- Docker & Docker Compose
-- OpenAPI/Swagger for API documentation
+- Java 17
+- Spring Data JPA/MongoDB
+- Spring Security
 
-## Data Model
+### Databases
+- MongoDB
+- PostgreSQL
+- Redis
+- Elasticsearch
 
-### PostgreSQL Entities
-- Users: Customer information and profiles
-- Orders: Order management and tracking
+### DevOps
+- Docker
+- Docker Compose
+- GitHub Actions
 
-### MongoDB Documents
-- Products: Product catalog and inventory
-- Reviews: Product reviews and ratings
+## 🚀 Getting Started
 
-## Prerequisites
-
+### Prerequisites
 - Docker and Docker Compose
-- Java 17 or later
+- Node.js 18+
+- Java 17+
 - Maven
 
-## Getting Started
+### Installation
 
 1. Clone the repository:
 ```bash
-git clone [repository-url]
-cd ecom-polygloteDB
+git clone https://github.com/yourusername/ecom-polyglotDB.git
+cd ecom-polyglotDB
 ```
 
-2. Start the application using Docker Compose:
+2. Start the services using Docker Compose:
 ```bash
-docker-compose up --build
+docker compose -f docker/docker-compose.yml up -d
 ```
 
-3. Access the application:
-- Main application: http://localhost:8080
+3. The application will be available at:
+- Frontend: http://localhost:3001
+- Backend API: http://localhost:8080
 - Swagger UI: http://localhost:8080/swagger-ui.html
-- API Docs: http://localhost:8080/api-docs
 
-## Database Configuration
+## 📁 Project Structure
 
-### PostgreSQL
-- Database: ecommerce
-- Port: 5432
-- Default credentials:
-  - Username: postgres
-  - Password: postgres
-
-### MongoDB
-- Database: ecommerce
-- Port: 27017
-- No authentication required for development
-
-## Development
-
-### Building the Application
-```bash
-./mvnw clean install
+```
+ecom-polyglotDB/
+├── frontend/               # Next.js frontend application
+├── backend/               # Spring Boot backend application
+├── docker/                # Docker configuration files
+│   ├── docker-compose.yml
+│   └── init-scripts/      # Database initialization scripts
+└── README.md
 ```
 
-### Running Tests
+## 🔧 Configuration
+
+### Environment Variables
+
+Frontend (.env):
+```
+NEXT_PUBLIC_API_URL=http://backend:8080
+```
+
+Backend (application.properties):
+```
+spring.data.mongodb.uri=mongodb://mongodb:27017/ecommerce
+spring.datasource.url=jdbc:postgresql://postgres:5432/ecommerce
+```
+
+## 🌐 API Documentation
+
+The API documentation is available through Swagger UI at:
+http://localhost:8080/swagger-ui.html
+
+## 🧪 Testing
+
+Run backend tests:
 ```bash
+cd backend
 ./mvnw test
 ```
 
-### Database Migrations
-The application uses direct initialization scripts for both PostgreSQL and MongoDB. The scripts are located in:
-- PostgreSQL: `init-scripts/postgres/`
-- MongoDB: `init-scripts/mongo/`
+Run frontend tests:
+```bash
+cd frontend
+npm test
+```
 
-## API Documentation
-
-The API documentation is available through Swagger UI when the application is running. Visit http://localhost:8080/swagger-ui.html to explore the available endpoints.
-
-## Contributing
+## 🤝 Contributing
 
 1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## License
+## 📝 License
 
-This project is licensed under the MIT License - see the LICENSE file for details. 
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- [Unsplash](https://unsplash.com) for providing high-quality product images
+- [Shadcn UI](https://ui.shadcn.com/) for the beautiful UI components
+- All contributors who have helped this project grow 

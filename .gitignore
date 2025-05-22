@@ -1,10 +1,74 @@
-HELP.md
+# IDEs and editors
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+
+# Frontend
+frontend/.next/
+frontend/node_modules/
+frontend/.env
+frontend/.env.*
+frontend/build/
+frontend/dist/
+frontend/coverage/
+
+# Backend
+backend/target/
+backend/.env
+backend/.env.*
+backend/logs/
+backend/*.log
+
+# Dependencies
+node_modules/
+.pnp/
+.pnp.js
+.yarn/install-state.gz
+
+# Testing
+coverage/
+
+# Production
+build/
+dist/
+
+# Debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Local env files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Docker
+docker-compose.override.yml
+/docker/data/
+
+# Misc
+*.log
+.DS_Store
+Thumbs.db
+
+# Vercel
+.vercel
+
+# Typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# Java
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
 
-### STS ###
+# STS/Eclipse
 .apt_generated
 .classpath
 .factorypath
@@ -13,13 +77,13 @@ target/
 .springBeans
 .sts4-cache
 
-### IntelliJ IDEA ###
+# IntelliJ IDEA
 .idea
 *.iws
 *.iml
 *.ipr
 
-### NetBeans ###
+# NetBeans
 /nbproject/private/
 /nbbuild/
 /dist/
@@ -29,24 +93,15 @@ build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
-### VS Code ###
+# VS Code
 .vscode/
 
-### Docker ###
-*.env
-/docker/data/
-postgres_data/
-mongodb_data/
-
-### Logs ###
+# Logs
+logs
 *.log
-logs/
 
-### OS specific ###
-.DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
-Thumbs.db
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
